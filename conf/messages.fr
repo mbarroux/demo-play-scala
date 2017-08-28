@@ -1,0 +1,8 @@
+error.required=Ce champ est obligatoire
+error.number=Ce champ doit contenir un nombre
+error.min=La valeur doit être supérieure ou égale à {0}
+error.min.strict=La valeur doit être supérieure à {0}
+error.max=La valeur doit être inférieure ou égale à {0}
+error.max.strict=La valeur doit être inférieure à {0}
+error.minLength=Longueur minimum : {0}
+error.maxLength=Longueur maximum : {0}

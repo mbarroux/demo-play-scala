@@ -1,0 +1,14 @@
+table {
+    border: medium solid #000000;
+    table-layout: fixed;
+    width: 100%;
+}
+td, th {
+    border: thin solid #6495ed;
+}
+#ajout-bouteille-error{
+    text-align: left;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}

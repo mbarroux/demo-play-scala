@@ -1,0 +1,28 @@
+@import domain.Bouteille
+@(bouteille: Bouteille)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Détail de la bouteille @bouteille.id</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <h1>Détail de la bouteille @bouteille.id</h1>
+
+        <p>ID : @bouteille.id</p>
+        <p>Nom : @bouteille.nom</p>
+        <p>Nom du château : @bouteille.nomChateau.getOrElse("-")</p>
+        <p>Millesime : @bouteille.millesime</p>
+        <p>Contenance en ml : @bouteille.contenanceEnML</p>
+
+        <br />
+
+        <a href="/bouteilles">Retour à la liste</a>
+
+    </body>
+</html>
