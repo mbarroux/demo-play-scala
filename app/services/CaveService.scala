@@ -14,9 +14,6 @@ class CaveService @Inject()(caveRepository: CaveRepository) {
   def listerBouteilles(): Future[Seq[Bouteille]] =
     caveRepository.listerBouteilles().map(listeDesBouteillesJdbc => listeDesBouteillesJdbc.map(toBouteille))
 
-  def recupererBouteille(id: Int): Future[Option[Bouteille]] =
-    caveRepository.recupererBouteille(id).map(bouteilleJdbcOptionnelle => bouteilleJdbcOptionnelle.map(toBouteille))
-
   private def toBouteille(bouteilleJdbc: BouteilleJdbc) = Bouteille(
     id = bouteilleJdbc.id,
     nom = bouteilleJdbc.nom,

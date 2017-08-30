@@ -30,7 +30,4 @@ class CaveRepository(val driver: JdbcProfile,
   def listerBouteilles(): Future[Seq[BouteilleJdbc]] =
     database.run(bouteilleQuery.sortBy(_.nom).result)
 
-  def recupererBouteille(id: Int): Future[Option[BouteilleJdbc]] =
-    database.run(bouteilleQuery.filter(_.id === id).result.headOption)
-
 }

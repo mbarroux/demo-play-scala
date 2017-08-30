@@ -21,12 +21,4 @@ class CaveController @Inject()(caveService: CaveService,
     )
   }
 
-  def detail(id: Int): Action[AnyContent] = Action.async {
-    caveService.recupererBouteille(id).map(bouteilleOptionnelle =>
-      bouteilleOptionnelle.map(bouteille =>
-        Ok(views.html.detailBouteille(bouteille))
-      ).getOrElse(NotFound(s"La bouteille $id n'existe pas"))
-    )
-  }
-
 }
