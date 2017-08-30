@@ -43,54 +43,34 @@ class CaveRepositoryITSpec extends PlaySpec with MockitoSugar with BeforeAndAfte
 
     "ne pas valoriser le nom du chateau de la bouteille de vin quand pas renseigne" in {
       // Given & When
-      val idNouvelleBouteille = Await.result(caveRepository.ajouterBouteille(
-        nom = "Champy Perest",
-        nomChateau = None,
-        millesime = 1965,
-        contenanceEnML = 750
-      ), 2.seconds)
+      // TODO
 
       // Then
-      Await.result(selectFromBouteille[String]("NOM_CHATEAU", idNouvelleBouteille), 2.seconds) mustBe null
+      // TODO
     }
 
     "valoriser le nom du chateau de la bouteille de vin quand il est renseigne" in {
       // Given & When
-      val idNouvelleBouteille = Await.result(caveRepository.ajouterBouteille(
-        nom = "Champy Perest",
-        nomChateau = Some("Savigny Vergelesses"),
-        millesime = 1965,
-        contenanceEnML = 750
-      ), 2.seconds)
+      // TODO
 
       // Then
-      Await.result(selectFromBouteille[String]("NOM_CHATEAU", idNouvelleBouteille), 2.seconds) mustBe "Savigny Vergelesses"
+      // TODO
     }
 
     "valoriser le millesime de la bouteille de vin" in {
       // Given & When
-      val idNouvelleBouteille = Await.result(caveRepository.ajouterBouteille(
-        nom = "Champy Perest",
-        nomChateau = Some("Savigny Vergelesses"),
-        millesime = 1965,
-        contenanceEnML = 750
-      ), 2.seconds)
+      // TODO
 
       // Then
-      Await.result(selectFromBouteille[Int]("MILLESIME", idNouvelleBouteille), 2.seconds) mustBe 1965
+      // TODO
     }
 
     "valoriser la contenance de la bouteille de vin" in {
       // Given & When
-      val idNouvelleBouteille = Await.result(caveRepository.ajouterBouteille(
-        nom = "Champy Perest",
-        nomChateau = Some("Savigny Vergelesses"),
-        millesime = 1965,
-        contenanceEnML = 750
-      ), 2.seconds)
+      // TODO
 
       // Then
-      Await.result(selectFromBouteille[Int]("CONTENANCE", idNouvelleBouteille), 2.seconds) mustBe 750
+      // TODO
     }
   }
 

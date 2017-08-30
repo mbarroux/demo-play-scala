@@ -25,19 +25,13 @@ class CaveServiceSpec extends PlaySpec with MockitoSugar with BeforeAndAfter {
   "ajouterBouteille" should {
     "doit recuperer les infos de la bouteille depuis la base a partir de l'id genere lors de sa creation" in {
       // Given
-      when(caveRepository.ajouterBouteille(any[String], any[Option[String]], any[Int], any[Int])).thenReturn(Future.successful(183))
-      val bouteilleData = CreationBouteilleData(
-        nom = "Champy Perest",
-        nomChateau = Some("Savigny Vergelesses"),
-        millesime = 1965,
-        contenanceEnMl = 750
-      )
+      // TODO
 
       // When
-      Await.ready(caveService.ajouterBouteille(bouteilleData), 2.seconds)
+      // TODO
 
       // Then
-      verify(caveRepository).recupererBouteille(MockitoMatchers.eq(183))
+      // TODO
     }
   }
 
