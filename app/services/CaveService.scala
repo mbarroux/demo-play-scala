@@ -17,9 +17,6 @@ class CaveService @Inject()(caveRepository: CaveRepository) {
   def recupererBouteille(id: Int): Future[Option[Bouteille]] =
     caveRepository.recupererBouteille(id).map(bouteilleJdbcOptionnelle => bouteilleJdbcOptionnelle.map(toBouteille))
 
-  def supprimerBouteille(id: Int): Future[Int] =
-    caveRepository.supprimerBouteille(id)
-
   def ajouterBouteille(data: CreationBouteilleData): Future[Option[Bouteille]] = {
     for {
       idNouvelleBouteille <- caveRepository.ajouterBouteille(
