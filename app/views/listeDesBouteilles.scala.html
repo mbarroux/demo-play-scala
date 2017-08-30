@@ -37,7 +37,7 @@
                         <td>@bouteille.nomChateau.getOrElse("-")</td>
                         <td>@bouteille.millesime</td>
                         <td>@bouteille.contenanceEnML</td>
-                        <td><a href="javascript:supprimerBouteille(@bouteille.id)">Supprimer</a></td>
+                        <td></td>
                     </tr>
                 }
             </tbody>
@@ -71,14 +71,15 @@
             <br>
         </div>
 
-        <a href="#modal-ajout-bouteille">Ajouter une nouvelle bouteille à la cave</a>
+        <!--<a href="#modal-ajout-bouteille">Ajouter une nouvelle bouteille à la cave</a>-->
 
         <script type="text/javascript">
             function supprimerBouteille(id){
                 if(window.confirm("Etes vous sur de vouloir supprimer la bouteille " + id + " ?")) {
+                    // TODO
                     $.ajax({
-                        type: 'DELETE',
-                        url: '/bouteilles/' + id
+                        //type: '',
+                        //url: ''
                     }).done(function () {
                         var ligneSupprimee = $('#ligne-bouteille-' + id);
                         ligneSupprimee.remove();
@@ -95,15 +96,11 @@
                         contenance = $('#form-ajout-bouteille-contenance').val();
 
                 if (nom !== "" && millesime !== "" && contenance !== "") {
+                    // TODO
                     $.ajax({
-                        type: 'POST',
-                        url: '/bouteilles/ajouter',
-                        data: JSON.stringify({
-                            "nom": nom,
-                            "nomChateau": nomChateau,
-                            "millesime": millesime,
-                            "contenanceEnMl": contenance
-                        }),
+                        //type: '',
+                        //url: '',
+                        //data: '',
                         contentType: 'application/json',
                         dataType: 'json'
                     }).done(function (data) {
@@ -112,7 +109,7 @@
 
                         // rafraichir tableau des bouteilles
                         var nomChateauOuVide = "nomChateau" in data ? data.nomChateau : "-";
-                        var ligneNouvelleBouteille = '<tr><td><a href="/bouteilles/' + data.id + '">' + data.id + '</a></td><td>' + data.nom + '</td><td>' + nomChateauOuVide + '</td><td>' + data.millesime + '</td><td>' + data.contenanceEnML + '</td><td><a href="javascript:supprimerBouteille(' + data.id + ')">Supprimer</a></td></tr>';
+                        var ligneNouvelleBouteille = '<tr><td><a href="/bouteilles/' + data.id + '">' + data.id + '</a></td><td>' + data.nom + '</td><td>' + nomChateauOuVide + '</td><td>' + data.millesime + '</td><td>' + data.contenanceEnML + '</td><td></td></tr>';
                         $('#liste-bouteilles').append(ligneNouvelleBouteille);
 
                         $('[data-remodal-id=modal-ajout-bouteille]').remodal().close();

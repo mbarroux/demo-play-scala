@@ -33,18 +33,4 @@ class CaveRepository(val driver: JdbcProfile,
   def recupererBouteille(id: Int): Future[Option[BouteilleJdbc]] =
     database.run(bouteilleQuery.filter(_.id === id).result.headOption)
 
-  def supprimerBouteille(id: Int): Future[Int] =
-    database.run(bouteilleQuery.filter(_.id === id).delete)
-
-  def ajouterBouteille(nom: String,
-                       nomChateau: Option[String],
-                       millesime: Int,
-                       contenanceEnML: Int): Future[Int] =
-    database.run(bouteilleQuery returning bouteilleQuery.map(_.id) += BouteilleJdbc(
-      id = 0,
-      nom = nom,
-      nomChateau = nomChateau,
-      millesime = millesime,
-      contenanceEnML = contenanceEnML
-    ))
 }

@@ -1,9 +1,7 @@
 # Web
 GET           /                          controllers.CaveController.liste
 GET           /bouteilles                controllers.CaveController.liste
-POST          /bouteilles/ajouter        controllers.CaveController.ajouter
 GET           /bouteilles/:id            controllers.CaveController.detail(id: Int)
-DELETE        /bouteilles/:id            controllers.CaveController.supprimer(id: Int)
 
 # API REST
 GET           /bouteilles/api/:id        controllers.CaveController.detailApi(id: Int)

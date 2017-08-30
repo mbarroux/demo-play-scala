@@ -29,15 +29,6 @@ class CaveController @Inject()(caveService: CaveService,
     )
   }
 
-  def supprimer(id: Int): Action[AnyContent] = Action.async {
-    caveService.supprimerBouteille(id).map(_ =>
-      NoContent
-    ) recover {
-      case NonFatal(_) =>
-        NotFound(s"La bouteille $id n'existe pas")
-    }
-  }
-
   // meme chose qu'action précédente, seulement on renvoie du json et pas du html
   def detailApi(id: Int): Action[AnyContent] = Action.async {
     caveService.recupererBouteille(id).map(bouteilleOptionnelle =>
@@ -47,16 +38,4 @@ class CaveController @Inject()(caveService: CaveService,
     )
   }
 
-  def ajouter: Action[JsValue] = Action.async(BodyParsers.parse.json) { implicit request =>
-    def creationBouteille(data: CreationBouteilleData): Future[Result] = {
-      caveService.ajouterBouteille(data).map(nouvelleBouteille =>
-        Created(Json.toJson(nouvelleBouteille))
-      )
-    }
-
-    CreationBouteilleForm.form.bindFromRequest.fold(
-      formWithErrors => Future.successful(BadRequest(formWithErrors.errorsAsJson)),
-      creationBouteille
-    )
-  }
 }
