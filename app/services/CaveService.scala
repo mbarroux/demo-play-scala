@@ -11,14 +11,4 @@ import scala.concurrent.Future
 
 class CaveService @Inject()(caveRepository: CaveRepository) {
 
-  def listerBouteilles(): Future[Seq[Bouteille]] =
-    caveRepository.listerBouteilles().map(listeDesBouteillesJdbc => listeDesBouteillesJdbc.map(toBouteille))
-
-  private def toBouteille(bouteilleJdbc: BouteilleJdbc) = Bouteille(
-    id = bouteilleJdbc.id,
-    nom = bouteilleJdbc.nom,
-    nomChateau = bouteilleJdbc.nomChateau,
-    millesime = bouteilleJdbc.millesime,
-    contenanceEnML = bouteilleJdbc.contenanceEnML
-  )
 }

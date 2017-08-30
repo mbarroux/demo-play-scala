@@ -27,7 +27,4 @@ class CaveRepository(val driver: JdbcProfile,
 
   lazy val bouteilleQuery: TableQuery[BouteilleEntity] = TableQuery[BouteilleEntity]
 
-  def listerBouteilles(): Future[Seq[BouteilleJdbc]] =
-    database.run(bouteilleQuery.sortBy(_.nom).result)
-
 }

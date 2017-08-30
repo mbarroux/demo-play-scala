@@ -30,16 +30,7 @@
             </thead>
 
             <tbody id="liste-bouteilles">
-                @for(bouteille <- listeDesBouteilles){
-                    <tr id="ligne-bouteille-@bouteille.id">
-                        <td><a href="/bouteilles/@bouteille.id">@bouteille.id</a></td>
-                        <td>@bouteille.nom</td>
-                        <td>@bouteille.nomChateau.getOrElse("-")</td>
-                        <td>@bouteille.millesime</td>
-                        <td>@bouteille.contenanceEnML</td>
-                        <td></td>
-                    </tr>
-                }
+                <!-- TODO templating -->
             </tbody>
         </table>
 

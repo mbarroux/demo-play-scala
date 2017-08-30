@@ -15,10 +15,4 @@ import scala.util.control.NonFatal
 class CaveController @Inject()(caveService: CaveService,
                                val messagesApi: MessagesApi) extends Controller with I18nSupport {
 
-  def liste: Action[AnyContent] = Action.async {
-    caveService.listerBouteilles().map(listeDesBouteilles =>
-      Ok(views.html.listeDesBouteilles(listeDesBouteilles))
-    )
-  }
-
 }
