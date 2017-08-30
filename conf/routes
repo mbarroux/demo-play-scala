@@ -3,9 +3,6 @@ GET           /                          controllers.CaveController.liste
 GET           /bouteilles                controllers.CaveController.liste
 GET           /bouteilles/:id            controllers.CaveController.detail(id: Int)
 
-# API REST
-GET           /bouteilles/api/:id        controllers.CaveController.detailApi(id: Int)
-
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file              controllers.Assets.at(path="/public", file)
 

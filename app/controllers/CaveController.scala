@@ -29,13 +29,4 @@ class CaveController @Inject()(caveService: CaveService,
     )
   }
 
-  // meme chose qu'action précédente, seulement on renvoie du json et pas du html
-  def detailApi(id: Int): Action[AnyContent] = Action.async {
-    caveService.recupererBouteille(id).map(bouteilleOptionnelle =>
-      bouteilleOptionnelle.map(bouteille =>
-        Ok(Json.toJson(bouteille))
-      ).getOrElse(NotFound(s"La bouteille $id n'existe pas"))
-    )
-  }
-
 }
